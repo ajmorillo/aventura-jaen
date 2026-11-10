@@ -8,14 +8,16 @@ export const PERFILES = [
     edad: 5,
     modo: 'peque',
     color: '#3d8bd9',
-    avatar: { piel: '#f2c29b', peinado: 'flequillo', pelo: '#a0682f', camiseta: '#3d8bd9', estampado: 'dino', mella: true },
+    avatar: { piel: '#f7d1b0', peinado: 'despeinado', pelo: '#7a4a22', reflejos: true, boca: 'abierta',
+      camiseta: '#fbf7ee', estampado: 'banda', detalle: '#3d8bd9', cuello: '#1f2f5a', mochila: true, mochilaColor: '#2b2b2b' },
   },
   {
     id: 'mayor',
     edad: 8,
     modo: 'mayor',
     color: '#e4572e',
-    avatar: { piel: '#eab38a', peinado: 'corto', pelo: '#3b2615', camiseta: '#e4572e', estampado: 'numero', numero: 8 },
+    avatar: { cara: 'ovalada', piel: '#f7d1b0', peinado: 'lado', pelo: '#5a3a1e', boca: 'picara',
+      camiseta: '#fbf7ee', estampado: 'lateral', detalle: '#1f2f5a', cuello: '#1f2f5a', mochila: true, mochilaColor: '#1f2f5a' },
   },
 ];
 

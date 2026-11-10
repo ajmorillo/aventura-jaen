@@ -4,19 +4,30 @@
 export const PIELES = ['#fde0c8', '#f7d1b0', '#f2c29b', '#eab38a', '#dca374', '#c98c5f', '#b07548', '#8f5b37', '#6e4428', '#4f301c'];
 export const PELOS = ['#f3d27a', '#d9a949', '#b5793a', '#a0682f', '#7a4a22', '#5a3a1e', '#3b2615', '#1e1610', '#c4512c', '#9a9a9a'];
 export const OJOS = ['#5b3a1f', '#2b1d12', '#8a6a2f', '#4f8a3c', '#3f7fc4', '#7d8a96'];
-export const ROPA = ['#e4572e', '#3d8bd9', '#43a047', '#ffcc33', '#8e5bc9', '#f06292', '#1f9e8f', '#fbf7ee', '#37474f', '#ff8a3d'];
+export const ROPA = ['#e4572e', '#3d8bd9', '#43a047', '#ffcc33', '#8e5bc9', '#f06292', '#1f9e8f', '#fbf7ee', '#37474f', '#ff8a3d', '#1f2f5a', '#2b2b2b'];
 export const GAFAS = ['#2b2b2b', '#c8553d', '#3d8bd9', '#8e5bc9', '#d4a017'];
 
 export const AVATAR_BASE = {
   cara: 'redonda', piel: '#f2c29b',
   peinado: 'corto', pelo: '#5a3a1e',
   ojos: '#5b3a1f', cejas: 'normales', gafas: 'ninguna', gafasColor: '#2b2b2b',
-  pecas: false, mella: false, lunar: false,
-  camiseta: '#e4572e', estampado: 'ninguno', numero: 7,
+  pecas: false, mella: false, lunar: false, boca: 'suave', reflejos: false,
+  camiseta: '#e4572e', estampado: 'ninguno', numero: 7, detalle: '#3d8bd9', cuello: 'igual',
   sombrero: 'ninguno', gorraColor: '#3d8bd9',
   mochila: false, mochilaColor: '#ffcc33',
   capa: false, mascota: false,
 };
+
+// ---------- Utilidades ----------
+
+// Aclara (f > 0) u oscurece (f < 0) un color #rrggbb.
+export function tono(hex, f) {
+  const n = parseInt(hex.slice(1), 16);
+  const c = [n >> 16, (n >> 8) & 255, n & 255].map(v => Math.round(f < 0 ? v * (1 + f) : v + (255 - v) * f));
+  return '#' + c.map(v => v.toString(16).padStart(2, '0')).join('');
+}
+
+let contador = 0; // ids únicos para clipPath (hay muchos avatares en la misma página)
 
 // ---------- Piezas ----------
 
@@ -59,13 +70,47 @@ function peloDelante(a) {
     case 'largo': return `<path d="M22 54 Q18 14 50 14 Q82 14 78 54 Q76 34 60 28 Q46 38 30 36 Q25 42 22 54 Z" fill="${c}"/>`;
     case 'pincho': return `<path d="M24 44 L21 24 L32 29 L33 13 L43 25 L50 8 L57 25 L67 13 L68 29 L79 24 L76 44 Q70 30 50 30 Q30 30 24 44 Z" fill="${c}"/>`;
     case 'moño': return `<path d="M23 46 Q20 16 50 18 Q80 16 77 46 Q74 30 50 28 Q26 30 23 46 Z" fill="${c}"/>`;
+    case 'lado': return `<path d="M21 52 Q16 18 48 12 Q80 10 79 44 L77 51 Q76 40 70 35 Q68 39 62 40 Q64 36 60 33 Q55 40 47 42 Q50 37 47 34 Q41 41 33 43 Q36 38 34 36 Q27 41 25 52 Z" fill="${c}"/>`;
+    case 'despeinado': return `<path d="M20 53 Q15 34 23 23 Q26 14 36 12 Q42 7 50 10 Q58 6 65 11 Q75 12 78 22 Q85 34 80 53 L77 53 Q77 43 73 38 Q71 43 66 42 Q67 37 63 35 Q59 42 53 41 Q55 36 51 34 Q46 41 40 40 Q41 36 38 35 Q33 41 28 42 Q25 46 24 53 Z" fill="${c}"/>`;
     default: return `<path d="M23 46 Q20 16 50 16 Q80 16 77 46 Q74 32 62 28 Q56 34 44 31 Q30 30 23 46 Z" fill="${c}"/>`; // corto
   }
 }
 
-function ojo(cx, a) {
-  return `<circle cx="${cx}" cy="47" r="3.9" fill="${a.ojos}"/><circle cx="${cx}" cy="47" r="2" fill="#1a120b"/>
-    <circle cx="${cx + 1.3}" cy="45.7" r="1.1" fill="#fff"/>`;
+// Mechones: líneas que dan volumen al pelo (y reflejos más claros si se piden).
+const MECHONES = {
+  lado: ['M60 15 Q50 22 44 33', 'M71 19 Q63 26 58 33', 'M47 15 Q38 23 33 35', 'M76 30 Q73 34 70 35'],
+  despeinado: ['M50 12 Q46 24 44 35', 'M62 13 Q60 26 58 36', 'M38 15 Q34 26 33 37', 'M72 20 Q71 30 69 38', 'M28 24 Q26 32 26 40'],
+  flequillo: ['M40 17 Q38 28 38 36', 'M50 15 V36', 'M60 17 Q62 28 62 36'],
+  corto: ['M40 18 Q36 24 34 31', 'M56 17 Q60 22 62 27'],
+};
+
+function mechones(a) {
+  const lineas = MECHONES[a.peinado];
+  if (!lineas) return '';
+  const oscuro = `<g fill="none" stroke="${tono(a.pelo, -0.3)}" stroke-width="1.4" stroke-linecap="round">${lineas.map(d => `<path d="${d}"/>`).join('')}</g>`;
+  const claro = a.reflejos ? `<g fill="none" stroke="${tono(a.pelo, 0.4)}" stroke-width="1.1" stroke-linecap="round" opacity=".7" transform="translate(2.2 -.8)">${lineas.slice(0, -1).map(d => `<path d="${d}"/>`).join('')}</g>` : '';
+  return oscuro + claro;
+}
+
+function ojo(cx, a, id) {
+  const forma = `M${cx - 5} 47.6 Q${cx} 42.4 ${cx + 5} 47.6 Q${cx} 52 ${cx - 5} 47.6 Z`;
+  return `<clipPath id="${id}"><path d="${forma}"/></clipPath>
+    <path d="${forma}" fill="#fff"/>
+    <g clip-path="url(#${id})"><circle cx="${cx}" cy="47.4" r="3.2" fill="${a.ojos}"/><circle cx="${cx}" cy="47.4" r="1.6" fill="#1a120b"/>
+    <circle cx="${cx + 1.2}" cy="46.3" r="1" fill="#fff"/></g>
+    <path d="M${cx - 5.4} 47.8 Q${cx} 42 ${cx + 5.4} 47.8" fill="none" stroke="#2b1d12" stroke-width="1.7" stroke-linecap="round"/>`;
+}
+
+function boca(a) {
+  const labio = '#7a3b2a';
+  if (a.boca === 'abierta') return `<path d="M41.5 56 Q50 59 58.5 56 Q56.5 63.6 50 63.6 Q43.5 63.6 41.5 56 Z" fill="#5c1f1f" stroke="${labio}" stroke-width="1.4" stroke-linejoin="round"/>
+    <path d="M43 56.8 Q50 59.4 57 56.8 L56.3 59.3 Q50 61 43.7 59.3 Z" fill="#fff"/>
+    ${a.mella ? '<rect x="48.4" y="57.6" width="3.2" height="3" fill="#5c1f1f"/>' : ''}
+    <path d="M46 62.2 Q50 60.8 54 62.2 Q50 63.6 46 62.2 Z" fill="#ff8a80"/>`;
+  if (a.boca === 'picara') return `<path d="M43.5 57.4 Q50.5 61 57.5 56" fill="none" stroke="${labio}" stroke-width="2.3" stroke-linecap="round"/>`;
+  return a.mella
+    ? `<path d="M42 56 Q50 64 58 56 Z" fill="#5c1f1f" stroke="${labio}" stroke-width="1.5" stroke-linejoin="round"/>${dientes(44, 56, 12, 2.6, true)}`
+    : `<path d="M43 57 Q50 63 57 57" fill="none" stroke="${labio}" stroke-width="3" stroke-linecap="round"/>`;
 }
 
 function dientes(x, y, w, h, mella) {
@@ -73,12 +118,9 @@ function dientes(x, y, w, h, mella) {
     + (mella ? `<rect x="${x + w / 2 - 1.8}" y="${y}" width="3.6" height="${h}" fill="#5c1f1f"/>` : '');
 }
 
-function expresiones(a) {
-  const bocaNormal = a.mella
-    ? `<path d="M42 56 Q50 64 58 56 Z" fill="#5c1f1f" stroke="#7a3b2a" stroke-width="1.5" stroke-linejoin="round"/>${dientes(44, 56, 12, 2.6, true)}`
-    : `<path d="M43 57 Q50 63 57 57" fill="none" stroke="#7a3b2a" stroke-width="3" stroke-linecap="round"/>`;
+function expresiones(a, id) {
   return `
-    <g class="cara-normal">${ojo(41, a)}${ojo(59, a)}${bocaNormal}</g>
+    <g class="cara-normal">${ojo(41, a, id + 'i')}${ojo(59, a, id + 'd')}${boca(a)}</g>
     <g class="cara-feliz">
       <path d="M36 48 Q41 42 46 48 M54 48 Q59 42 64 48" fill="none" stroke="#2b1d12" stroke-width="3.2" stroke-linecap="round"/>
       <path d="M40 55 Q50 70 60 55 Z" fill="#5c1f1f" stroke="#7a3b2a" stroke-width="2" stroke-linejoin="round"/>
@@ -114,6 +156,17 @@ function gafas(a) {
     <rect x="32" y="41" width="16" height="12" rx="3"/><rect x="52" y="41" width="16" height="12" rx="3"/>
     <path d="M48 46 H52 M32 45 L25 43 M68 45 L75 43" fill="none"/></g>`;
   return '';
+}
+
+const TORSO = 'M24 107 Q24 74 50 74 Q76 74 76 107 Z';
+
+// Diseños que ocupan toda la camiseta (se recortan con su silueta).
+function diseno(a, id) {
+  let d = '';
+  if (a.estampado === 'banda') d = `<path d="M18 80 L32 72 L82 99 L82 112 Z" fill="${a.detalle}"/><path d="M27 85 L82 114" stroke="#f06292" stroke-width="1.4"/>`;
+  else if (a.estampado === 'lateral') d = `<path d="M61 84 L80 79 L80 110 L58 110 Z" fill="${a.detalle}"/><path d="M22 92 L30 90 L30 110 L22 110 Z" fill="${a.detalle}"/>`;
+  if (!d) return '';
+  return `<clipPath id="${id}"><path d="${TORSO}"/></clipPath><g clip-path="url(#${id})">${d}</g>`;
 }
 
 function estampado(a) {
@@ -182,24 +235,32 @@ const lagartija = `<g class="mascota">
 
 export function avatarSVG(opciones = {}, { viewBox = '0 -6 100 116' } = {}) {
   const a = { ...AVATAR_BASE, ...opciones };
+  const id = 'av' + (++contador);
+  const sombraPiel = tono(a.piel, -0.18);
   return `<svg viewBox="${viewBox}" aria-hidden="true">
     <ellipse cx="50" cy="107" rx="27" ry="4" fill="rgba(0,0,0,.15)"/>
     ${a.capa ? capa(a.capa === 'dorada') : ''}
     ${a.mochila ? `<rect x="19" y="80" width="62" height="26" rx="9" fill="${a.mochilaColor}" stroke="rgba(0,0,0,.2)" stroke-width="2"/>` : ''}
     ${peloDetras(a)}
-    <path d="M24 107 Q24 74 50 74 Q76 74 76 107 Z" fill="${a.camiseta}"/>
-    <path d="M42 74 L50 83 L58 74" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="3"/>
+    <path d="${TORSO}" fill="${a.camiseta}"/>
+    ${diseno(a, id + 't')}
+    ${a.cuello === 'igual' ? '<path d="M42 74 L50 83 L58 74" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="3"/>'
+      : `<path d="M40.5 74.6 Q50 85 59.5 74.6" fill="none" stroke="${a.cuello}" stroke-width="3.4" stroke-linecap="round"/>`}
     ${estampado(a)}
     ${a.mochila ? `<g stroke="${a.mochilaColor}" stroke-width="5" stroke-linecap="round" fill="none"><path d="M34 78 Q32 92 34 106"/><path d="M66 78 Q68 92 66 106"/></g>` : ''}
     <rect x="44" y="64" width="12" height="12" rx="4" fill="${a.piel}"/>
+    <rect x="44" y="66" width="12" height="4" fill="${sombraPiel}" opacity=".6"/>
     <circle cx="25" cy="48" r="6" fill="${a.piel}"/><circle cx="75" cy="48" r="6" fill="${a.piel}"/>
+    <path d="M26 45 Q22.5 48 25.5 51.5 M74 45 Q77.5 48 74.5 51.5" fill="none" stroke="${sombraPiel}" stroke-width="1.5" stroke-linecap="round"/>
     ${cabeza(a)}
-    <circle cx="35" cy="56" r="5" fill="#ff8a80" opacity=".4"/><circle cx="65" cy="56" r="5" fill="#ff8a80" opacity=".4"/>
+    <circle cx="35" cy="56" r="5" fill="#ff8a80" opacity=".32"/><circle cx="65" cy="56" r="5" fill="#ff8a80" opacity=".32"/>
+    <path d="M50.6 49.6 Q53 53.4 49.6 54.2" fill="none" stroke="${sombraPiel}" stroke-width="1.6" stroke-linecap="round"/>
     ${a.pecas ? `<g fill="#b9764a" opacity=".75">${[[33, 53], [37, 55], [34, 57.5], [38, 51.5], [67, 53], [63, 55], [66, 57.5], [62, 51.5]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="1"/>`).join('')}</g>` : ''}
     ${a.lunar ? '<circle cx="63" cy="61" r="1.4" fill="#4a2c1a"/>' : ''}
-    ${expresiones(a)}
+    ${expresiones(a, id)}
     ${cejas(a)}
     ${peloDelante(a)}
+    ${mechones(a)}
     ${gafas(a)}
     ${sombrero(a)}
     ${a.mascota === 'paloma' ? paloma : a.mascota ? lagartija : ''}

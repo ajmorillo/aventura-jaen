@@ -1,6 +1,6 @@
 // Service worker: guarda todo el juego en el dispositivo para jugar sin conexión.
 // VERSION y ARCHIVOS los reescribe tools/preparar-publicacion.mjs; no editar a mano.
-const VERSION = 'aventura-3d45d31168';
+const VERSION = 'aventura-d9974d5447';
 const ARCHIVOS = [
   './',
   'index.html',

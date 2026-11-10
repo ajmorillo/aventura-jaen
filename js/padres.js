@@ -17,6 +17,7 @@ const VISTA = {
 const ETIQUETAS = {
   true: 'Sí', false: 'No', ninguno: 'Nada', ninguna: 'Nada', numero: 'Número', corazon: 'Corazón',
   balon: 'Balón', moño: 'Moño', pincho: 'De punta', aceituna: 'Aceituna', sol: 'De sol',
+  lado: 'De lado', picara: 'Pícara', lateral: 'Lados', banda: 'Banda',
 };
 const etiqueta = v => ETIQUETAS[v] ?? String(v).charAt(0).toUpperCase() + String(v).slice(1);
 
@@ -26,8 +27,9 @@ const SECCIONES = [
     { titulo: 'Tono de piel', clave: 'piel', colores: PIELES },
   ] },
   { id: 'pelo', titulo: 'Pelo', grupos: [
-    { titulo: 'Peinado', clave: 'peinado', valores: ['corto', 'flequillo', 'rizos', 'coletas', 'largo', 'moño', 'pincho', 'rapado'], vista: VISTA.pelo },
+    { titulo: 'Peinado', clave: 'peinado', valores: ['corto', 'flequillo', 'lado', 'despeinado', 'rizos', 'coletas', 'largo', 'moño', 'pincho', 'rapado'], vista: VISTA.pelo },
     { titulo: 'Color', clave: 'pelo', colores: PELOS },
+    { titulo: 'Reflejos', clave: 'reflejos', valores: [false, true], vista: VISTA.pelo, si: a => ['corto', 'flequillo', 'lado', 'despeinado'].includes(a.peinado) },
   ] },
   { id: 'ojos', titulo: 'Ojos', grupos: [
     { titulo: 'Color de ojos', clave: 'ojos', colores: OJOS },
@@ -36,13 +38,16 @@ const SECCIONES = [
     { titulo: 'Color de las gafas', clave: 'gafasColor', colores: GAFAS, si: a => a.gafas !== 'ninguna' },
   ] },
   { id: 'detalles', titulo: 'Detalles', grupos: [
+    { titulo: 'Sonrisa', clave: 'boca', valores: ['suave', 'abierta', 'picara'], vista: VISTA.detalle },
     { titulo: 'Mella (se ve al sonreír)', clave: 'mella', valores: [false, true], vista: VISTA.detalle, expresion: 'feliz' },
     { titulo: 'Pecas', clave: 'pecas', valores: [false, true], vista: VISTA.detalle },
     { titulo: 'Lunar', clave: 'lunar', valores: [false, true], vista: VISTA.detalle },
   ] },
   { id: 'ropa', titulo: 'Ropa', grupos: [
     { titulo: 'Camiseta', clave: 'camiseta', colores: ROPA },
-    { titulo: 'Dibujo', clave: 'estampado', valores: ['ninguno', 'numero', 'estrella', 'corazon', 'rayo', 'balon', 'dino', 'aceituna'], vista: VISTA.ropa },
+    { titulo: 'Dibujo', clave: 'estampado', valores: ['ninguno', 'banda', 'lateral', 'numero', 'estrella', 'corazon', 'rayo', 'balon', 'dino', 'aceituna'], vista: VISTA.ropa },
+    { titulo: 'Color de la banda', clave: 'detalle', colores: ROPA, si: a => ['banda', 'lateral'].includes(a.estampado) },
+    { titulo: 'Cuello', clave: 'cuello', colores: ['igual', ...ROPA] },
     { titulo: 'Número', clave: 'numero', tipo: 'numero', si: a => a.estampado === 'numero' },
     { titulo: 'Mochila', clave: 'mochila', valores: [false, true], vista: VISTA.entero },
     { titulo: 'Color de la mochila', clave: 'mochilaColor', colores: ROPA, si: a => a.mochila },
@@ -192,8 +197,8 @@ function pintarGrupos() {
       for (const c of g.colores) {
         const b = document.createElement('button');
         b.className = 'opcion color' + (a[g.clave] === c ? ' elegida' : '');
-        b.style.background = c;
-        b.setAttribute('aria-label', c);
+        b.style.background = c === 'igual' ? 'repeating-linear-gradient(45deg, #d8d2c4 0 4px, #fff 4px 8px)' : c;
+        b.setAttribute('aria-label', c === 'igual' ? 'Sin color' : c);
         b.addEventListener('click', () => cambiar(g.clave, c));
         ops.append(b);
       }
