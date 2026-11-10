@@ -1,0 +1,11 @@
+{
+  "name": "aventura-en-jaen",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validar": "node tools/validar-niveles.mjs",
+    "niveles": "node tools/generar-niveles.mjs && node tools/validar-niveles.mjs",
+    "iconos": "node tools/generar-iconos.mjs",
+    "publicar": "node tools/preparar-publicacion.mjs"
+  }
+}

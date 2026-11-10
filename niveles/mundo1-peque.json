@@ -1,0 +1,87 @@
+{
+  "mundo": 1,
+  "nombre": "Barrio de la Magdalena",
+  "final": "¡Bravo! Has recorrido el Barrio de la Magdalena. Cuenta la leyenda que aquí vivía un lagarto enorme... ¡pero ahora es tu amigo!",
+  "niveles": [
+    {
+      "id": "1-1",
+      "tam": [5, 5],
+      "inicio": [0, 2],
+      "meta": [3, 2],
+      "obstaculos": [],
+      "optimo": 3,
+      "texto": "¡Hola! Soy el Lagarto de la Malena. Llévame a la fuente del Raudal.",
+      "voz": "¡Hola! Soy el Lagarto de la Malena. ¿Me ayudas a llegar a la fuente del Raudal? Pon flechas abajo y pulsa el botón verde."
+    },
+    {
+      "id": "1-2",
+      "tam": [5, 5],
+      "inicio": [2, 4],
+      "meta": [2, 1],
+      "obstaculos": [[0, 0], [4, 0]],
+      "optimo": 3,
+      "texto": "Ahora la fuente está arriba. ¿Qué flechas necesitas?",
+      "voz": "¡Muy bien! Ahora la fuente está arriba. ¿Qué flechas necesitas?"
+    },
+    {
+      "id": "1-3",
+      "tam": [5, 5],
+      "inicio": [0, 4],
+      "meta": [3, 1],
+      "obstaculos": [[1, 4], [2, 4], [1, 3], [2, 3], [4, 4], [4, 0]],
+      "optimo": 6,
+      "texto": "¡Cuidado con las casas! Busca el camino libre.",
+      "voz": "¡Cuidado con las casas! No se pueden atravesar. Busca el camino libre hasta la fuente."
+    },
+    {
+      "id": "1-4",
+      "tam": [5, 5],
+      "inicio": [4, 4],
+      "meta": [4, 1],
+      "obstaculos": [[4, 3], [4, 2], [1, 3], [0, 0]],
+      "optimo": 5,
+      "texto": "Sube y baja por las calles del barrio.",
+      "voz": "Ahora tendrás que cambiar de dirección. Busca el camino hasta la fuente."
+    },
+    {
+      "id": "1-5",
+      "tam": [5, 5],
+      "inicio": [1, 3],
+      "meta": [1, 0],
+      "obstaculos": [[1, 2], [2, 1], [4, 2]],
+      "optimo": 5,
+      "texto": "Las casas cortan el paso. ¡Rodéalas!",
+      "voz": "Las casas cortan el paso. Tendrás que rodearlas para llegar a la fuente."
+    },
+    {
+      "id": "1-6",
+      "tam": [5, 5],
+      "inicio": [3, 0],
+      "meta": [2, 3],
+      "obstaculos": [[2, 2], [3, 1], [2, 4], [4, 4], [3, 4]],
+      "optimo": 6,
+      "texto": "Un camino con dos curvas.",
+      "voz": "Este camino tiene curvas. Mira bien antes de poner las flechas."
+    },
+    {
+      "id": "1-7",
+      "tam": [5, 5],
+      "inicio": [0, 3],
+      "meta": [4, 3],
+      "obstaculos": [[1, 3], [2, 3], [0, 0], [3, 2], [1, 0], [0, 2]],
+      "optimo": 6,
+      "texto": "¡Qué lío de calles!",
+      "voz": "¡Qué lío de calles! Sigue con el dedo el camino antes de empezar."
+    },
+    {
+      "id": "1-8",
+      "tam": [5, 5],
+      "inicio": [3, 1],
+      "meta": [1, 4],
+      "obstaculos": [[0, 2], [3, 2], [2, 1], [1, 1], [1, 2], [4, 4]],
+      "optimo": 7,
+      "texto": "El último rincón de la Magdalena.",
+      "voz": "El último rincón de la Magdalena. ¡Tú puedes!"
+    }
+  ]
+}

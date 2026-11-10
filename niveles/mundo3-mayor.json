@@ -1,0 +1,120 @@
+{
+  "mundo": 3,
+  "nombre": "Plaza de Santa María",
+  "final": "¡Lo lograste! Has llegado a la Catedral de Jaén, una joya del Renacimiento. Tardaron más de doscientos años en construirla, y sirvió de modelo para catedrales de América.",
+  "niveles": [
+    {
+      "id": "3-1",
+      "tam": [7, 7],
+      "inicio": [5, 1],
+      "meta": [1, 4],
+      "obstaculos": [[2, 4], [0, 3], [0, 4], [5, 6], [6, 3], [6, 5], [5, 5], [1, 3], [5, 4]],
+      "dir": "izquierda",
+      "reto": 12,
+      "texto": "Cruza la plaza hasta la Catedral.",
+      "voz": "Bienvenido a la plaza de Santa María. Cruza la plaza hasta la puerta de la Catedral, esquivando fuentes y palomas."
+    },
+    {
+      "id": "3-2",
+      "tam": [7, 7],
+      "inicio": [6, 4],
+      "meta": [1, 0],
+      "obstaculos": [[3, 3], [0, 6], [1, 6], [1, 3], [3, 0], [5, 0], [3, 5], [1, 2], [0, 2], [4, 5], [4, 0]],
+      "dir": "abajo",
+      "reto": 12,
+      "texto": "Recorridos largos: divide el camino en tramos.",
+      "voz": "Los recorridos son largos. Un truco: divide el camino en tramos rectos."
+    },
+    {
+      "id": "3-3",
+      "tam": [7, 7],
+      "inicio": [6, 0],
+      "meta": [2, 6],
+      "obstaculos": [[1, 4], [4, 2], [0, 3], [1, 3], [4, 0], [3, 0], [0, 5], [1, 1], [1, 6], [4, 4], [2, 3], [3, 1]],
+      "aceitunas": [[5, 3]],
+      "dir": "abajo",
+      "reto": 14,
+      "texto": "Una aceituna perdida en la plaza.",
+      "voz": "Alguien ha perdido una aceituna en la plaza. Recógela de camino."
+    },
+    {
+      "id": "3-4",
+      "tam": [7, 7],
+      "inicio": [0, 2],
+      "meta": [2, 6],
+      "obstaculos": [[1, 4], [5, 3], [3, 3], [4, 1], [6, 2], [6, 1], [5, 4], [1, 1], [5, 5], [1, 5], [0, 5], [2, 4], [4, 5]],
+      "dir": "arriba",
+      "reto": 15,
+      "texto": "Palomas por todas partes.",
+      "voz": "Hay palomas por todas partes. Busca el camino más corto."
+    },
+    {
+      "id": "3-5",
+      "tam": [8, 8],
+      "inicio": [7, 7],
+      "meta": [0, 4],
+      "obstaculos": [[6, 5], [4, 0], [5, 3], [1, 7], [4, 5], [7, 6], [1, 5], [1, 3], [0, 0], [5, 4], [3, 1], [2, 1], [2, 5], [6, 4], [1, 6]],
+      "dir": "arriba",
+      "reto": 13,
+      "texto": "La plaza grande.",
+      "voz": "Ahora la plaza es más grande. Planea antes de programar."
+    },
+    {
+      "id": "3-6",
+      "tam": [8, 8],
+      "inicio": [2, 5],
+      "meta": [6, 5],
+      "obstaculos": [[6, 4], [2, 7], [4, 3], [5, 6], [3, 3], [2, 0], [3, 4], [4, 4], [7, 6], [7, 3], [7, 5], [0, 5], [1, 1], [6, 0], [4, 1], [3, 5]],
+      "aceitunas": [[6, 6], [5, 5]],
+      "dir": "abajo",
+      "reto": 16,
+      "texto": "Dos aceitunas y muchas palomas.",
+      "voz": "Dos aceitunas y muchas palomas. ¿Cuál es el mejor orden?"
+    },
+    {
+      "id": "3-7",
+      "tam": [8, 8],
+      "inicio": [5, 5],
+      "meta": [0, 0],
+      "obstaculos": [[7, 1], [3, 5], [2, 4], [7, 2], [4, 3], [5, 1], [2, 6], [7, 4], [2, 1], [3, 3], [6, 6], [0, 2], [5, 0], [7, 0], [6, 7], [3, 2]],
+      "dir": "abajo",
+      "reto": 15,
+      "texto": "Zigzag entre fuentes.",
+      "voz": "Un zigzag entre fuentes. Cuenta bien las casillas."
+    },
+    {
+      "id": "3-8",
+      "tam": [8, 8],
+      "inicio": [7, 7],
+      "meta": [4, 0],
+      "obstaculos": [[0, 5], [7, 3], [2, 1], [2, 3], [2, 6], [7, 4], [4, 4], [4, 6], [2, 7], [1, 5], [7, 0], [3, 6], [3, 7], [0, 2], [6, 4], [7, 2], [6, 7], [5, 0]],
+      "dir": "izquierda",
+      "reto": 15,
+      "texto": "Casi en la puerta.",
+      "voz": "Ya casi estás en la puerta de la Catedral."
+    },
+    {
+      "id": "3-9",
+      "tam": [8, 8],
+      "inicio": [2, 4],
+      "meta": [6, 4],
+      "obstaculos": [[7, 0], [5, 4], [2, 7], [6, 5], [0, 2], [0, 0], [0, 4], [0, 5], [4, 0], [3, 0], [1, 4], [2, 6], [7, 7], [1, 6], [2, 2], [6, 1], [0, 6], [6, 0]],
+      "aceitunas": [[3, 6], [7, 5]],
+      "dir": "izquierda",
+      "reto": 18,
+      "texto": "Un recado antes de entrar.",
+      "voz": "Antes de entrar en la Catedral, recoge las dos aceitunas."
+    },
+    {
+      "id": "3-10",
+      "tam": [8, 8],
+      "inicio": [3, 6],
+      "meta": [5, 0],
+      "obstaculos": [[7, 4], [3, 3], [6, 6], [5, 4], [3, 5], [7, 2], [3, 1], [5, 3], [5, 2], [0, 2], [1, 1], [0, 0], [4, 6], [4, 0], [7, 3], [4, 4], [6, 4], [7, 6], [0, 1], [6, 5]],
+      "dir": "abajo",
+      "reto": 16,
+      "texto": "El gran recorrido final.",
+      "voz": "El gran recorrido final. Si lo consigues con pocos bloques, eres un maestro programador."
+    }
+  ]
+}

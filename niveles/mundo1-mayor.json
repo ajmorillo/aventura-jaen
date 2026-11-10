@@ -1,0 +1,117 @@
+{
+  "mundo": 1,
+  "nombre": "Barrio de la Magdalena",
+  "final": "¡Bravo! Has recorrido las callejuelas de la Magdalena. Dice la leyenda que un lagarto gigante vivía junto al Raudal y asustaba a los vecinos... ¡hasta que lo vencieron con astucia!",
+  "niveles": [
+    {
+      "id": "1-1",
+      "tam": [6, 6],
+      "inicio": [0, 3],
+      "dir": "derecha",
+      "meta": [4, 3],
+      "obstaculos": [[0, 0], [5, 0], [0, 5], [5, 5]],
+      "reto": 4,
+      "texto": "Ahora miras hacia un lado. «Avanzar» te lleva un paso adelante.",
+      "voz": "¡Hola! En tu modo, el avatar mira hacia un lado. El bloque avanzar le hace dar un paso hacia donde mira. Llega a la fuente."
+    },
+    {
+      "id": "1-2",
+      "tam": [6, 6],
+      "inicio": [0, 5],
+      "dir": "derecha",
+      "meta": [3, 2],
+      "obstaculos": [[4, 5], [5, 5], [5, 4], [0, 0], [1, 0]],
+      "reto": 7,
+      "texto": "Las flechas curvas giran sin moverte de la casilla.",
+      "voz": "Las flechas curvas hacen girar al avatar sin moverse de la casilla. Fíjate en la flechita que indica hacia dónde mira."
+    },
+    {
+      "id": "1-3",
+      "tam": [6, 6],
+      "inicio": [0, 0],
+      "dir": "abajo",
+      "meta": [4, 3],
+      "obstaculos": [[1, 1], [2, 1], [3, 1], [1, 2], [2, 2], [3, 2], [0, 5], [5, 5], [5, 0]],
+      "reto": 8,
+      "texto": "Ojo: si miras hacia abajo, ¿hacia dónde es tu izquierda?",
+      "voz": "¡Ojo! Si el avatar mira hacia abajo, su izquierda no es tu izquierda. Imagina que eres tú quien camina."
+    },
+    {
+      "id": "1-4",
+      "tam": [6, 6],
+      "inicio": [4, 5],
+      "meta": [0, 2],
+      "obstaculos": [[5, 3], [5, 4], [3, 0], [3, 2], [4, 0], [1, 1], [2, 1], [2, 4], [0, 4]],
+      "dir": "izquierda",
+      "reto": 9,
+      "texto": "Recuerda: gira según hacia dónde mira el avatar.",
+      "voz": "Recuerda que los giros dependen de hacia dónde mira el avatar, no de hacia dónde miras tú."
+    },
+    {
+      "id": "1-5",
+      "tam": [6, 6],
+      "inicio": [1, 5],
+      "meta": [5, 5],
+      "obstaculos": [[5, 1], [3, 5], [2, 5], [4, 1], [5, 0], [4, 3], [5, 4], [1, 3]],
+      "dir": "derecha",
+      "reto": 10,
+      "texto": "Tres giros como mínimo. ¿Los encuentras?",
+      "voz": "Aquí hacen falta al menos tres giros. ¿Los encuentras?"
+    },
+    {
+      "id": "1-6",
+      "tam": [6, 6],
+      "inicio": [0, 5],
+      "dir": "arriba",
+      "meta": [5, 0],
+      "obstaculos": [[1, 5], [2, 5], [1, 4], [2, 4], [4, 5], [5, 5], [4, 4], [5, 4], [0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [4, 2], [5, 2], [5, 3]],
+      "reto": 13,
+      "texto": "Callejuelas en zigzag. Planea los giros antes de pulsar ¡Ya!",
+      "voz": "Las callejuelas de la Magdalena hacen zigzag. Planea bien los giros antes de pulsar el botón verde."
+    },
+    {
+      "id": "1-7",
+      "tam": [7, 7],
+      "inicio": [1, 2],
+      "meta": [4, 6],
+      "obstaculos": [[1, 1], [3, 6], [4, 5], [3, 1], [2, 2], [6, 3], [0, 1], [5, 3], [6, 2], [2, 3], [5, 1]],
+      "dir": "abajo",
+      "reto": 12,
+      "texto": "Un barrio más grande. Planea antes de programar.",
+      "voz": "El barrio se hace más grande. Planea el camino antes de programar."
+    },
+    {
+      "id": "1-8",
+      "tam": [7, 7],
+      "inicio": [5, 3],
+      "meta": [0, 0],
+      "obstaculos": [[2, 6], [1, 4], [0, 2], [0, 5], [1, 5], [4, 1], [0, 6], [5, 1], [6, 0], [3, 4], [4, 5], [5, 6], [1, 1]],
+      "dir": "derecha",
+      "reto": 12,
+      "texto": "Calles estrechas y muchas esquinas.",
+      "voz": "Calles estrechas y muchas esquinas. ¡Ojo con los giros!"
+    },
+    {
+      "id": "1-9",
+      "tam": [7, 7],
+      "inicio": [3, 1],
+      "meta": [6, 3],
+      "obstaculos": [[6, 6], [4, 1], [4, 2], [5, 2], [0, 3], [1, 4], [1, 3], [4, 3], [1, 2], [4, 5], [2, 0], [2, 2], [4, 4], [2, 3], [2, 6], [6, 1]],
+      "dir": "derecha",
+      "reto": 15,
+      "texto": "El gran reto de la Magdalena.",
+      "voz": "El gran reto de la Magdalena. Si lo consigues con pocos bloques, eres un experto."
+    },
+    {
+      "id": "1-10",
+      "tam": [8, 8],
+      "inicio": [0, 7],
+      "dir": "derecha",
+      "meta": [7, 0],
+      "obstaculos": [[3, 7], [4, 7], [1, 6], [3, 6], [6, 6], [1, 5], [5, 5], [6, 5], [3, 4], [4, 4], [5, 4], [0, 3], [1, 3], [6, 3], [3, 2], [4, 2], [1, 1], [5, 1], [6, 1], [3, 0]],
+      "reto": 18,
+      "texto": "¡El laberinto del barrio! Encuentra el camino más corto.",
+      "voz": "¡El laberinto del barrio! Encuentra el camino hasta la fuente. Si lo haces con pocos bloques, ganarás la tercera estrella."
+    }
+  ]
+}

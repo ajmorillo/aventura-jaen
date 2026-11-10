@@ -1,0 +1,89 @@
+{
+  "mundo": 5,
+  "nombre": "Castillo de Santa Catalina",
+  "final": "¡Has llegado a la Cruz, en lo más alto del cerro! Desde aquí se ve todo Jaén: la Catedral, las casas y el mar de olivos. ¡Eres un gran aventurero!",
+  "niveles": [
+    {
+      "id": "5-1",
+      "tam": [5, 5],
+      "inicio": [2, 1],
+      "meta": [1, 3],
+      "obstaculos": [[2, 2], [3, 2], [1, 1], [2, 3], [4, 1], [3, 1]],
+      "optimo": 7,
+      "texto": "¡A subir al castillo!",
+      "voz": "¡Vamos a subir al castillo de Santa Catalina! El camino es largo. Pon las flechas poco a poco."
+    },
+    {
+      "id": "5-2",
+      "tam": [5, 5],
+      "inicio": [0, 3],
+      "meta": [0, 0],
+      "obstaculos": [[4, 4], [4, 0], [4, 2], [4, 1], [0, 2], [1, 2], [3, 0]],
+      "optimo": 7,
+      "texto": "El camino del cerro.",
+      "voz": "El camino del cerro da muchas vueltas. ¡Fíjate bien!"
+    },
+    {
+      "id": "5-3",
+      "tam": [5, 5],
+      "inicio": [2, 4],
+      "meta": [1, 1],
+      "obstaculos": [[3, 0], [1, 4], [3, 3], [2, 3], [2, 0], [0, 1]],
+      "aceitunas": [[3, 2]],
+      "optimo": 8,
+      "texto": "Una aceituna en el camino.",
+      "voz": "Hay una aceituna en el camino. Recógela al subir."
+    },
+    {
+      "id": "5-4",
+      "tam": [5, 5],
+      "inicio": [4, 0],
+      "meta": [0, 0],
+      "obstaculos": [[2, 1], [2, 3], [2, 4], [1, 4], [3, 0], [0, 3]],
+      "optimo": 8,
+      "texto": "Entre rocas y pinos.",
+      "voz": "Sube entre las rocas y los pinos."
+    },
+    {
+      "id": "5-5",
+      "tam": [6, 6],
+      "inicio": [0, 4],
+      "meta": [1, 1],
+      "obstaculos": [[5, 0], [3, 0], [1, 3], [2, 0], [3, 3], [2, 1], [0, 3], [1, 4], [3, 1], [1, 0], [5, 3]],
+      "optimo": 8,
+      "texto": "Las murallas del castillo.",
+      "voz": "Ya ves las murallas del castillo. ¡Sigue subiendo!"
+    },
+    {
+      "id": "5-6",
+      "tam": [6, 6],
+      "inicio": [5, 0],
+      "meta": [3, 5],
+      "obstaculos": [[3, 3], [4, 4], [4, 1], [5, 5], [4, 5], [4, 3], [1, 0], [1, 3], [1, 2], [5, 4]],
+      "optimo": 9,
+      "texto": "Dentro del castillo.",
+      "voz": "Estás dentro del castillo. Busca el camino hasta la Cruz."
+    },
+    {
+      "id": "5-7",
+      "tam": [6, 6],
+      "inicio": [4, 1],
+      "meta": [1, 4],
+      "obstaculos": [[0, 1], [3, 4], [5, 4], [2, 3], [3, 1], [2, 5], [0, 0], [2, 4], [3, 0]],
+      "aceitunas": [[5, 3]],
+      "optimo": 10,
+      "texto": "Casi en lo más alto.",
+      "voz": "Casi estás en lo más alto. No olvides la aceituna."
+    },
+    {
+      "id": "5-8",
+      "tam": [6, 6],
+      "inicio": [3, 5],
+      "meta": [3, 1],
+      "obstaculos": [[2, 0], [4, 1], [2, 2], [0, 4], [5, 4], [0, 1], [2, 3], [3, 2], [2, 1], [5, 5], [1, 1], [4, 4], [1, 5]],
+      "optimo": 10,
+      "texto": "¡La Cruz del cerro!",
+      "voz": "¡El último camino hasta la Cruz! Desde allí verás todo Jaén."
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Aventura">
+  <meta name="theme-color" content="#bfe6f7">
+  <meta name="description" content="Programa a tu avatar con flechas para recorrer Jaén.">
+  <title>Aventura en Jaén</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="iconos/icono.svg" type="image/svg+xml">
+  <link rel="icon" href="iconos/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="iconos/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Aviso para girar el móvil (sin texto) -->
+  <div id="rotar" aria-label="Gira el dispositivo"><div class="movil">📱</div><div>↻</div></div>
+
+  <div id="paisaje" class="paisaje" aria-hidden="true"></div>
+
+  <!-- PERFILES: una tarjeta por hermano, sin texto necesario -->
+  <section id="pantalla-perfiles" class="pantalla activa">
+    <h1>Aventura en Jaén</h1>
+    <div id="perfiles" class="perfiles"></div>
+    <button id="btn-padres" class="btn-padres" aria-label="Modo padres">⚙️</button>
+  </section>
+
+  <!-- MODO PADRES: editor de avatar -->
+  <section id="pantalla-padres" class="pantalla">
+    <div class="padres-cabecera">
+      <h2>Modo padres</h2>
+      <div id="padres-perfiles" class="padres-perfiles"></div>
+      <button id="padres-cerrar" class="boton-redondo" aria-label="Salir">✕</button>
+    </div>
+    <div class="padres-cuerpo">
+      <div class="padres-vista">
+        <button id="padres-avatar" class="padres-avatar" aria-label="Cambiar expresión"></button>
+        <p class="padres-ayuda">Toca el avatar para ver sus caras</p>
+        <input id="padres-nombre" class="padres-nombre" type="text" maxlength="16" placeholder="Nombre (opcional)" autocomplete="off">
+        <button id="padres-guardar" class="btn-ya btn-guardar">Guardar</button>
+        <button id="padres-borrar" class="enlace">Borrar progreso de este perfil</button>
+      </div>
+      <div class="padres-opciones">
+        <div id="padres-secciones" class="pestanas"></div>
+        <div id="padres-grupos" class="grupos"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA DE MUNDOS -->
+  <section id="pantalla-mundos" class="pantalla">
+    <button id="btn-perfiles" class="boton-redondo esquina" aria-label="Cambiar de jugador">👥</button>
+    <div id="avatar-mundos" class="avatar-mundos"></div>
+    <div id="mundos" class="mundos"></div>
+    <div class="botones-mundos">
+      <button id="btn-armario" class="btn-grande" aria-label="Armario de premios"><span>👕</span><i id="aviso-armario" class="aviso" hidden></i></button>
+      <button id="btn-album" class="btn-grande" aria-label="Álbum de Jaén"><span>📖</span><b id="cuenta-album"></b></button>
+    </div>
+  </section>
+
+  <!-- ARMARIO: premios por estrellas -->
+  <section id="pantalla-armario" class="pantalla">
+    <button class="boton-redondo esquina volver-mundos" aria-label="Volver">🗺️</button>
+    <div class="armario">
+      <div class="armario-vista">
+        <div id="armario-avatar" class="armario-avatar feliz"></div>
+        <div id="armario-total" class="armario-total"></div>
+      </div>
+      <div id="armario-premios" class="armario-premios"></div>
+    </div>
+  </section>
+
+  <!-- ÁLBUM DE JAÉN -->
+  <section id="pantalla-album" class="pantalla">
+    <button class="boton-redondo esquina volver-mundos" aria-label="Volver">🗺️</button>
+    <h1>Álbum de Jaén</h1>
+    <div id="album" class="album"></div>
+  </section>
+
+  <!-- NIVELES DE UN MUNDO -->
+  <section id="pantalla-inicio" class="pantalla">
+    <button id="btn-mundos" class="boton-redondo esquina" aria-label="Mapa de mundos">🗺️</button>
+    <h1 id="titulo-mundo"></h1>
+    <div class="portada">
+      <div id="lagarto-portada" class="lagarto-portada"></div>
+      <button id="btn-jugar" class="btn-jugar" aria-label="Jugar"></button>
+      <div id="avatar-portada" class="avatar-portada"></div>
+    </div>
+    <div id="niveles" class="niveles"></div>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="pantalla-juego" class="pantalla">
+    <div class="zona">
+      <div class="guia">
+        <div id="bocadillo" class="bocadillo"></div>
+        <button id="lagarto-guia" class="lagarto-guia" aria-label="Repetir explicación"></button>
+      </div>
+      <div id="marco" class="marco"><div id="tablero" class="tablero"></div></div>
+      <div class="controles">
+        <button id="btn-casa" class="boton-redondo" aria-label="Niveles">🏠</button>
+        <button id="btn-voz" class="boton-redondo" aria-label="Repetir explicación">🔊</button>
+        <button id="btn-pista" class="boton-redondo" aria-label="Pista">💡</button>
+        <button id="btn-silencio" class="boton-redondo" aria-label="Silenciar">🔈</button>
+      </div>
+    </div>
+    <div class="barra-programa">
+      <div id="paleta" class="paleta"></div>
+      <div class="programa-marco">
+        <div id="cesta" class="cesta" aria-label="Aceitunas recogidas"></div>
+        <div id="reto" class="reto" aria-label="Reto de bloques"></div>
+        <div id="programa" class="programa" aria-label="Programa"></div>
+      </div>
+      <button id="btn-borrar" class="boton-redondo" aria-label="Quitar el último bloque"></button>
+      <button id="btn-ya" class="btn-ya" aria-label="¡Ya!"></button>
+    </div>
+  </section>
+
+  <!-- CELEBRACIÓN -->
+  <div id="celebracion" class="modal" role="dialog" aria-label="¡Muy bien!">
+    <div class="tarjeta">
+      <div id="cele-avatar" class="cele-avatar"></div>
+      <div id="cele-estrellas" class="estrellas"></div>
+      <div id="cele-logros" class="logros"></div>
+      <div id="cele-premio" class="cele-premio"></div>
+      <div class="acciones">
+        <button id="btn-repetir" class="boton-redondo grande" aria-label="Repetir nivel">↻</button>
+        <button id="btn-siguiente" class="btn-ya" aria-label="Siguiente nivel"></button>
+      </div>
+    </div>
+  </div>
+
+ <!-- POSTAL AMPLIADA -->
+  <div id="postal" class="modal" role="dialog" aria-label="Postal">
+    <div class="tarjeta postal-grande">
+      <button id="postal-cerrar" class="cerrar" aria-label="Cerrar">✕</button>
+      <div id="postal-imagen" class="postal-imagen"></div>
+      <h2 id="postal-titulo"></h2>
+      <p id="postal-texto"></p>
+      <button id="postal-voz" class="boton-redondo" aria-label="Escuchar">🔊</button>
+    </div>
+  </div>
+
+ <!-- PUERTA DE PADRES -->
+  <div id="puerta" class="modal" role="dialog" aria-label="Solo para mayores">
+    <div class="tarjeta puerta">
+      <button id="puerta-cerrar" class="cerrar" aria-label="Cerrar">✕</button>
+      <div class="puerta-titulo">Solo para mayores</div>
+      <div id="puerta-pregunta" class="puerta-pregunta"></div>
+      <div id="puerta-entrada" class="puerta-entrada"></div>
+      <div id="puerta-teclado" class="teclado"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

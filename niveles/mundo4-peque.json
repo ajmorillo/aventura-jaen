@@ -1,0 +1,104 @@
+{
+  "mundo": 4,
+  "nombre": "Baños Árabes",
+  "final": "¡Genial! Has abierto todas las puertas de los Baños Árabes. Hace casi mil años, la gente venía aquí a bañarse con agua fría, templada y caliente.",
+  "niveles": [
+    {
+      "id": "4-1",
+      "tam": [5, 5],
+      "inicio": [4, 1],
+      "meta": [2, 4],
+      "obstaculos": [[0, 2], [1, 2], [2, 2], [4, 2], [0, 3]],
+      "llaves": [[3, 1]],
+      "puertas": [[3, 2]],
+      "optimo": 5,
+      "texto": "Coge la llave para abrir la puerta.",
+      "voz": "¡Bienvenido a los Baños Árabes! La puerta está cerrada. Coge primero la llave, y luego podrás pasar."
+    },
+    {
+      "id": "4-2",
+      "tam": [5, 5],
+      "inicio": [1, 0],
+      "meta": [3, 4],
+      "obstaculos": [[2, 0], [2, 1], [2, 2], [2, 4]],
+      "llaves": [[1, 3]],
+      "puertas": [[2, 3]],
+      "optimo": 6,
+      "texto": "Primero la llave, después la puerta.",
+      "voz": "Recuerda: primero la llave, y después la puerta."
+    },
+    {
+      "id": "4-3",
+      "tam": [5, 5],
+      "inicio": [3, 0],
+      "meta": [1, 3],
+      "obstaculos": [[0, 2], [1, 2], [3, 2], [4, 2], [4, 3], [0, 4]],
+      "llaves": [[2, 1]],
+      "puertas": [[2, 2]],
+      "optimo": 5,
+      "texto": "La llave está escondida.",
+      "voz": "La llave está escondida entre las columnas. ¡Búscala!"
+    },
+    {
+      "id": "4-4",
+      "tam": [5, 5],
+      "inicio": [0, 2],
+      "meta": [3, 1],
+      "obstaculos": [[2, 0], [2, 2], [2, 3], [2, 4], [0, 0], [4, 4], [3, 0]],
+      "llaves": [[1, 3]],
+      "puertas": [[2, 1]],
+      "aceitunas": [[1, 2]],
+      "optimo": 6,
+      "texto": "Una llave y una aceituna.",
+      "voz": "Hay una llave y una aceituna. Necesitas las dos."
+    },
+    {
+      "id": "4-5",
+      "tam": [5, 5],
+      "inicio": [0, 0],
+      "meta": [4, 4],
+      "obstaculos": [[2, 0], [2, 1], [2, 2], [2, 4], [4, 2], [0, 3]],
+      "llaves": [[1, 1]],
+      "puertas": [[2, 3]],
+      "optimo": 8,
+      "texto": "Un camino largo hasta la llave.",
+      "voz": "La llave está lejos. Fíjate bien en el camino."
+    },
+    {
+      "id": "4-6",
+      "tam": [5, 5],
+      "inicio": [0, 0],
+      "meta": [4, 2],
+      "obstaculos": [[1, 0], [1, 2], [1, 3], [1, 4], [3, 0], [3, 1], [3, 2], [3, 4], [2, 4]],
+      "llaves": [[0, 1], [2, 2]],
+      "puertas": [[1, 1], [3, 3]],
+      "optimo": 8,
+      "texto": "¡Dos puertas y dos llaves!",
+      "voz": "¡Dos puertas! La llave dorada abre la puerta dorada, y la azul abre la azul."
+    },
+    {
+      "id": "4-7",
+      "tam": [5, 5],
+      "inicio": [0, 3],
+      "meta": [4, 0],
+      "obstaculos": [[1, 0], [1, 2], [1, 3], [1, 4], [3, 1], [3, 2], [3, 3], [3, 4], [4, 2], [4, 1]],
+      "llaves": [[0, 0], [2, 0]],
+      "puertas": [[1, 1], [3, 0]],
+      "optimo": 9,
+      "texto": "Cada llave abre su puerta.",
+      "voz": "Cada llave abre la puerta de su color."
+    },
+    {
+      "id": "4-8",
+      "tam": [5, 5],
+      "inicio": [0, 2],
+      "meta": [4, 0],
+      "obstaculos": [[1, 0], [1, 1], [1, 3], [1, 4], [3, 0], [3, 1], [3, 3], [3, 4], [2, 3]],
+      "llaves": [[0, 1], [2, 1]],
+      "puertas": [[1, 2], [3, 2]],
+      "optimo": 10,
+      "texto": "La sala caliente de los baños.",
+      "voz": "Ya llegas a la sala caliente de los baños. ¡Abre todas las puertas!"
+    }
+  ]
+}

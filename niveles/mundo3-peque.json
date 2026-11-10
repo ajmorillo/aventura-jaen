@@ -1,0 +1,89 @@
+{
+  "mundo": 3,
+  "nombre": "Plaza de Santa María",
+  "final": "¡Lo lograste! Has llegado a la Catedral de Jaén. Es tan grande y bonita que tardaron más de doscientos años en construirla.",
+  "niveles": [
+    {
+      "id": "3-1",
+      "tam": [5, 5],
+      "inicio": [3, 3],
+      "meta": [0, 1],
+      "obstaculos": [[1, 0], [1, 1], [2, 2]],
+      "optimo": 5,
+      "texto": "Cruza la plaza hasta la Catedral.",
+      "voz": "¡Bienvenido a la plaza de Santa María! Cruza la plaza hasta la puerta de la Catedral."
+    },
+    {
+      "id": "3-2",
+      "tam": [5, 5],
+      "inicio": [1, 3],
+      "meta": [1, 0],
+      "obstaculos": [[4, 4], [1, 2], [4, 1], [0, 0], [3, 0]],
+      "optimo": 5,
+      "texto": "Cuidado con las fuentes y las palomas.",
+      "voz": "Cuidado con las fuentes y las palomas: no se pueden atravesar."
+    },
+    {
+      "id": "3-3",
+      "tam": [5, 5],
+      "inicio": [1, 3],
+      "meta": [4, 4],
+      "obstaculos": [[3, 3], [1, 4], [3, 4], [2, 4]],
+      "optimo": 6,
+      "texto": "Un paseo más largo.",
+      "voz": "Este paseo es más largo. Ve poniendo las flechas poco a poco."
+    },
+    {
+      "id": "3-4",
+      "tam": [5, 5],
+      "inicio": [2, 0],
+      "meta": [3, 3],
+      "obstaculos": [[3, 4], [2, 1], [4, 0], [3, 0], [4, 3], [3, 2], [3, 1]],
+      "optimo": 6,
+      "texto": "¡Cuántas palomas!",
+      "voz": "¡Cuántas palomas hay hoy en la plaza! Busca un camino libre."
+    },
+    {
+      "id": "3-5",
+      "tam": [5, 5],
+      "inicio": [1, 4],
+      "meta": [3, 1],
+      "obstaculos": [[1, 3], [4, 1], [0, 2], [3, 3], [4, 2]],
+      "aceitunas": [[1, 1]],
+      "optimo": 7,
+      "texto": "Alguien ha perdido una aceituna...",
+      "voz": "Alguien ha perdido una aceituna en la plaza. Recógela de camino a la Catedral."
+    },
+    {
+      "id": "3-6",
+      "tam": [5, 5],
+      "inicio": [0, 3],
+      "meta": [4, 4],
+      "obstaculos": [[0, 4], [3, 3], [3, 1], [0, 0], [2, 1], [4, 0], [1, 3]],
+      "optimo": 7,
+      "texto": "Rodea la plaza.",
+      "voz": "Tendrás que rodear media plaza. ¡Fíjate bien!"
+    },
+    {
+      "id": "3-7",
+      "tam": [5, 5],
+      "inicio": [3, 1],
+      "meta": [1, 3],
+      "obstaculos": [[3, 2], [4, 0], [0, 2], [0, 4], [1, 4], [3, 0], [4, 3]],
+      "aceitunas": [[3, 3], [2, 4]],
+      "optimo": 8,
+      "texto": "Dos aceitunas perdidas.",
+      "voz": "Hay dos aceitunas perdidas. Recógelas antes de entrar en la Catedral."
+    },
+    {
+      "id": "3-8",
+      "tam": [5, 5],
+      "inicio": [1, 3],
+      "meta": [4, 0],
+      "obstaculos": [[4, 4], [1, 0], [1, 4], [2, 3], [1, 2], [4, 3], [4, 2]],
+      "optimo": 8,
+      "texto": "El gran paseo final.",
+      "voz": "El gran paseo final hasta la Catedral. ¡Tú puedes!"
+    }
+  ]
+}

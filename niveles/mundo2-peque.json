@@ -1,0 +1,95 @@
+{
+  "mundo": 2,
+  "nombre": "Mar de olivos",
+  "final": "¡Bien hecho! Has recogido las aceitunas del mar de olivos. En Jaén hay tantos olivos que, vistos desde el cerro, parecen un mar verde.",
+  "niveles": [
+    {
+      "id": "2-1",
+      "tam": [5, 5],
+      "inicio": [2, 1],
+      "meta": [1, 0],
+      "obstaculos": [[2, 0], [0, 1]],
+      "aceitunas": [[1, 2]],
+      "optimo": 4,
+      "texto": "Coge la aceituna y llévala a la almazara.",
+      "voz": "¡Bienvenido al mar de olivos! Pasa por encima de la aceituna para cogerla y después llega a la almazara."
+    },
+    {
+      "id": "2-2",
+      "tam": [5, 5],
+      "inicio": [2, 4],
+      "meta": [2, 3],
+      "obstaculos": [[1, 4], [4, 3], [3, 3]],
+      "aceitunas": [[1, 2]],
+      "optimo": 5,
+      "texto": "Primero la aceituna, después la almazara.",
+      "voz": "Primero la aceituna, y después la almazara. Los olivos no se pueden atravesar."
+    },
+    {
+      "id": "2-3",
+      "tam": [5, 5],
+      "inicio": [0, 1],
+      "meta": [3, 2],
+      "obstaculos": [[1, 3], [3, 0], [0, 4], [4, 2]],
+      "aceitunas": [[0, 2], [2, 2]],
+      "optimo": 4,
+      "texto": "¡Dos aceitunas!",
+      "voz": "Ahora hay dos aceitunas. Recógelas todas antes de llegar a la almazara."
+    },
+    {
+      "id": "2-4",
+      "tam": [5, 5],
+      "inicio": [2, 3],
+      "meta": [1, 2],
+      "obstaculos": [[3, 2], [4, 1], [2, 2], [4, 2]],
+      "aceitunas": [[1, 1], [2, 1]],
+      "optimo": 6,
+      "texto": "Esquiva los olivos.",
+      "voz": "Esquiva los olivos y recoge las dos aceitunas."
+    },
+    {
+      "id": "2-5",
+      "tam": [5, 5],
+      "inicio": [3, 3],
+      "meta": [0, 2],
+      "obstaculos": [[3, 1], [2, 1], [1, 0], [1, 3], [2, 2]],
+      "aceitunas": [[0, 3], [2, 3]],
+      "optimo": 6,
+      "texto": "Un camino entre olivos.",
+      "voz": "Busca un camino entre los olivos que pase por las dos aceitunas."
+    },
+    {
+      "id": "2-6",
+      "tam": [5, 5],
+      "inicio": [0, 2],
+      "meta": [2, 0],
+      "obstaculos": [[2, 4], [4, 1], [4, 4], [4, 3]],
+      "aceitunas": [[0, 1], [0, 0], [1, 2]],
+      "optimo": 6,
+      "texto": "¡Tres aceitunas!",
+      "voz": "¡Tres aceitunas! ¿Por cuál empiezas?"
+    },
+    {
+      "id": "2-7",
+      "tam": [5, 5],
+      "inicio": [2, 3],
+      "meta": [3, 1],
+      "obstaculos": [[1, 4], [0, 4], [0, 1], [2, 1], [0, 0], [3, 3]],
+      "aceitunas": [[3, 2], [2, 4], [3, 4]],
+      "optimo": 7,
+      "texto": "La cosecha está en marcha.",
+      "voz": "La cosecha está en marcha. Recoge las tres aceitunas sin chocar con los olivos."
+    },
+    {
+      "id": "2-8",
+      "tam": [5, 5],
+      "inicio": [4, 2],
+      "meta": [4, 0],
+      "obstaculos": [[3, 0], [0, 2], [3, 1], [0, 3], [2, 4], [1, 1]],
+      "aceitunas": [[4, 1], [2, 1], [3, 2]],
+      "optimo": 8,
+      "texto": "La última cosecha.",
+      "voz": "La última cosecha del olivar. ¡A por todas las aceitunas!"
+    }
+  ]
+}
